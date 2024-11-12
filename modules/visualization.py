@@ -3,6 +3,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import pandas as pd
 import plotly.express as px
+import plotly.graph_objects as go
 
 def visualize_clusters(data, cluster_labels, diag_kind="kde", alpha=0.6, marker_size=50, title="Cluster Visualization", palette="bright"):
     """
@@ -96,3 +97,114 @@ def visualize_clusters_interactive(data, cluster_labels, name_field="County", hi
     #                     )
 
     fig.show()
+
+def visualize_cost_distribution(data, cluster_labels, cost_column="avg_cost_per_marker", name_column="County"):
+    """
+    Creates a box plot to show the distribution of average cost per marker for each cluster.
+
+    Parameters:
+    - data (pd.DataFrame): The original dataset containing the cost column and other information.
+    - cluster_labels (pd.Series or np.array): Labels from the clustering step.
+    - cost_column (str): The name of the column representing the cost per marker.
+    - name_column (str): The column to display on hover (e.g., county name).
+
+    Returns:
+    - None: Displays the interactive plot.
+    """
+    # Copy data and add cluster labels for plotting
+    plot_data = data.copy()
+    plot_data["Cluster"] = cluster_labels
+
+    # Create a box plot for each cluster
+    fig = px.box(
+        plot_data,
+        x="Cluster",
+        y="avg_cost_per_marker",
+        points="all",  # Display all points overlaid on the box plot
+        hover_name="County",  # Show the name (county) on hover
+        title=f"Distribution of {cost_column.replace('_', ' ').title()} by Cluster",
+        labels={"Cluster": "Cluster", cost_column: "Avg Cost per Marker"}
+    )
+    fig.update_traces(marker=dict(size=6, opacity=0.7))
+    fig.show()
+
+
+def visualize_neighbor_cost_distribution(data, cost_column="avg_cost_per_marker", county_column="County"):
+    """
+    Creates a box plot showing the distribution of cost per marker for the nearest neighbors of each data point.
+
+    Parameters:
+    - data (pd.DataFrame): Data containing neighbor cost distributions.
+    - cost_column (str): The column representing the cost per marker.
+
+    Returns:
+    - None: Displays the plot.
+    """
+    # Expand neighbor costs into individual rows for easy plotting
+    neighbor_data = pd.DataFrame({
+        "Point": data.index.repeat(len(data[f"{cost_column}_neighbors"].iloc[0])),
+        f"{cost_column}_neighbors": [item for sublist in data[f"{cost_column}_neighbors"] for item in sublist],
+        county_column: data[county_column].repeat(len(data[f"{cost_column}_neighbors"].iloc[0])).values
+    })
+
+    # Create box plot
+    fig = px.box(
+        neighbor_data,
+        x="Point",
+        y=f"{cost_column}_neighbors",
+        hover_data={county_column: True},
+        title=f"Distribution of {cost_column.replace('_', ' ').title()} for Nearest Neighbors",
+        labels={"Point": "Data Point", f"{cost_column}_neighbors": f"{cost_column.replace('_', ' ').title()}"}
+    )
+    fig.show()
+
+
+def visualize_target_neighbor_distribution(
+        neighbors_data,
+        cost_column="avg_cost_per_marker",
+        county_column="County",
+        target_county="Van Buren"
+    ):
+    """
+    Creates a combined box plot and scatter plot for the cost per marker of the target county and its nearest neighbors.
+
+    Parameters:
+    - neighbors_data (pd.DataFrame): Data containing the target county and its nearest neighbors.
+    - cost_column (str): The column representing the cost per marker.
+    - county_column (str): The column representing the county name.
+    - target_county (str): Name of the target county to highlight.
+
+    Returns:
+    - None: Displays the plot.
+    """
+    # Add a column to distinguish the target county for styling
+    neighbors_data["Is Target"] = neighbors_data[county_column] == target_county
+
+    # Create a box plot for the neighbors data
+    fig = px.box(
+        neighbors_data,
+        y=cost_column,
+        points="all",
+        hover_name=county_column,
+        title=f"Cost per Marker Distribution for {target_county} and Nearest Neighbors",
+        labels={cost_column: "Avg Cost per Marker", county_column: "County"}
+    )
+
+    # Create a scatter trace specifically for individual points
+    scatter_trace = go.Scatter(
+        x=neighbors_data[county_column],
+        y=neighbors_data[cost_column],
+        mode="markers",
+        marker=dict(
+            size=10,
+            color=neighbors_data["Is Target"].map({True: "red", False: "blue"})
+        ),
+        text=neighbors_data[county_column],  # Display county name on hover
+        name="Counties"
+    )
+
+    # Add scatter trace to the figure
+    fig.add_trace(scatter_trace)
+
+    fig.show()
+
