@@ -1,5 +1,5 @@
 {
-    "file_path": "data/data.csv",
+    "file_path": "data/pop_wetland_road_by_county.csv",
     "standardization": {
         "method": "z-score"
     },
