@@ -4,7 +4,7 @@ from sklearn.preprocessing import StandardScaler, MinMaxScaler
 
 def standardize(data, method="z-score"):
     """
-    Standardizes features in the dataset using the specified method.
+    Standardizes only numeric features in the dataset using the specified method.
     
     Parameters:
     - data (pd.DataFrame): The input data to standardize.
@@ -17,8 +17,8 @@ def standardize(data, method="z-score"):
         print("Error: No data provided for standardization.")
         return None
     
-    # Selecting the columns with numeric data types
-    numeric_cols = data.select_dtypes(include=["float64", "int64"]).columns
+    # Selecting only numeric columns
+    numeric_data = data.select_dtypes(include=["float64", "int64"])
     
     if method == "z-score":
         scaler = StandardScaler()
@@ -30,7 +30,7 @@ def standardize(data, method="z-score"):
     
     # Standardizing the numeric columns
     try:
-        data[numeric_cols] = scaler.fit_transform(data[numeric_cols])
+        data[numeric_data.columns] = scaler.fit_transform(numeric_data)
         print(f"Data standardized using {method} scaling.")
         return data
     except Exception as e:
