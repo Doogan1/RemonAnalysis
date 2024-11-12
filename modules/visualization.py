@@ -159,12 +159,9 @@ def visualize_neighbor_cost_distribution(data, cost_column="avg_cost_per_marker"
     fig.show()
 
 
-def visualize_target_neighbor_distribution(
-        neighbors_data,
-        cost_column="avg_cost_per_marker",
-        county_column="County",
-        target_county="Van Buren"
-    ):
+
+
+def visualize_target_neighbor_distribution(neighbors_data, cost_column="avg_cost_per_marker", county_column="County", target_county="Van Buren"):
     """
     Creates a combined box plot and scatter plot for the cost per marker of the target county and its nearest neighbors.
 
@@ -180,31 +177,92 @@ def visualize_target_neighbor_distribution(
     # Add a column to distinguish the target county for styling
     neighbors_data["Is Target"] = neighbors_data[county_column] == target_county
 
-    # Create a box plot for the neighbors data
+    # Create a box plot with individual points for each county
     fig = px.box(
         neighbors_data,
         y=cost_column,
         points="all",
         hover_name=county_column,
+        color="Is Target",
         title=f"Cost per Marker Distribution for {target_county} and Nearest Neighbors",
         labels={cost_column: "Avg Cost per Marker", county_column: "County"}
     )
 
-    # Create a scatter trace specifically for individual points
-    scatter_trace = go.Scatter(
-        x=neighbors_data[county_column],
-        y=neighbors_data[cost_column],
-        mode="markers",
-        marker=dict(
-            size=10,
-            color=neighbors_data["Is Target"].map({True: "red", False: "blue"})
-        ),
-        text=neighbors_data[county_column],  # Display county name on hover
-        name="Counties"
-    )
-
-    # Add scatter trace to the figure
-    fig.add_trace(scatter_trace)
+    fig.update_traces(marker=dict(size=10), selector=dict(type='box'))
 
     fig.show()
+
+
+
+def visualize_3d_neighbors(data, target_county="Van Buren", neighbors=[], metrics=["Metric1", "Metric2", "Metric3"], county_column="County"):
+    """
+    Creates a 3D scatter plot of data points, highlighting the target county and its nearest neighbors.
+
+    Parameters:
+    - data (pd.DataFrame): Data containing the metrics and county names.
+    - target_county (str): The name of the target county to highlight.
+    - neighbors (list): List of nearest neighbor counties to highlight.
+    - metrics (list): List of three metric column names to plot in 3D space.
+    - county_column (str): Column name representing the county names.
+
+    Returns:
+    - None: Displays the 3D plot.
+    """
+    if len(metrics) != 3:
+        print("Error: Please provide exactly three metrics for the 3D plot.")
+        return
+
+    # Filter data into different categories for coloring and symbolization
+    target_data = data[data[county_column] == target_county]
+    neighbors_data = data[data[county_column].isin(neighbors)]
+    other_data = data[~data[county_column].isin([target_county] + neighbors)]
+
+    # Create 3D scatter plot with separate traces
+    fig = go.Figure()
+
+    # Target county trace
+    fig.add_trace(go.Scatter3d(
+        x=target_data[metrics[0]],
+        y=target_data[metrics[1]],
+        z=target_data[metrics[2]],
+        mode='markers',
+        marker=dict(size=10, color='red', symbol="diamond"),
+        name="Target County",
+        text=target_data[county_column]
+    ))
+
+    # Nearest neighbors trace
+    fig.add_trace(go.Scatter3d(
+        x=neighbors_data[metrics[0]],
+        y=neighbors_data[metrics[1]],
+        z=neighbors_data[metrics[2]],
+        mode='markers',
+        marker=dict(size=7, color='blue', symbol="circle"),
+        name="Neighbors",
+        text=neighbors_data[county_column]
+    ))
+
+    # Other counties trace
+    fig.add_trace(go.Scatter3d(
+        x=other_data[metrics[0]],
+        y=other_data[metrics[1]],
+        z=other_data[metrics[2]],
+        mode='markers',
+        marker=dict(size=5, color='gray', symbol="cross"),
+        name="Other Counties",
+        text=other_data[county_column]
+    ))
+
+    # Set plot title and labels
+    fig.update_layout(
+        title=f"3D Plot of Metrics Showing Nearest Neighbors of {target_county}",
+        scene=dict(
+            xaxis_title=metrics[0],
+            yaxis_title=metrics[1],
+            zaxis_title=metrics[2]
+        )
+    )
+
+    fig.show()
+
 

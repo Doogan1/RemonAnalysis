@@ -8,7 +8,8 @@ from modules.visualization import (
     visualize_clusters_interactive,
     visualize_cost_distribution,
     visualize_target_neighbor_distribution,
-    visualize_neighbor_cost_distribution
+    visualize_neighbor_cost_distribution,
+    visualize_3d_neighbors
 )
 
 # Load configuration file
@@ -16,15 +17,31 @@ with open("config.json", "r") as f:
     config = json.load(f)
 
 def run_knn_analysis(data, data_std, config):
-    # Find the target county's nearest neighbors
+    # Get parameters from config
     target_county = config["knn"]["target_county"]
     n_neighbors = config["knn"]["n_neighbors"]
+    metrics = config["knn"]["metrics"]
+
+    # Find the target county's nearest neighbors
     neighbors_data = find_target_neighbors(
         data, data_std,
         cost_column="avg_cost_per_marker",
         county_column="County",
         target_county=target_county,
-        n_neighbors=n_neighbors
+        n_neighbors=n_neighbors,
+        metrics=metrics
+    )
+
+    # Extract neighbor county names for visualization (excluding the target county)
+    neighbor_names = neighbors_data[neighbors_data["County"] != target_county]["County"].tolist()
+
+    # Visualize 3D metrics space using standardized data
+    visualize_3d_neighbors(
+        data_std, 
+        target_county=target_county, 
+        neighbors=neighbor_names, 
+        metrics=metrics,
+        county_column="County"
     )
 
     # Visualize the distribution for the target county's nearest neighbors
@@ -34,6 +51,7 @@ def run_knn_analysis(data, data_std, config):
         county_column="County",
         target_county=target_county
     )
+
 
 def run_clustering_analysis(data_std, config):
     # Exclude non-numeric columns and any columns we don't want for clustering

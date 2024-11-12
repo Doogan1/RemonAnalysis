@@ -14,7 +14,8 @@
     },
     "knn": {
         "target_county": "Van Buren",
-        "n_neighbors": 5
+        "n_neighbors": 5,
+        "metrics": ["wetlandd", "pop_d", "roadoverarea"]
     },
     "visualization": {
         "diag_kind": "kde",
