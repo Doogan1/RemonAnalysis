@@ -1,0 +1,17 @@
+{
+    "file_path": "data/data.csv",
+    "standardization": {
+        "method": "z-score"
+    },
+    "clustering": {
+        "method": "k-means",
+        "max_clusters": 10,
+        "init": "k-means++"
+    },
+    "evaluation": {
+        "metric": "silhouette"
+    },
+    "visualization": {
+        "color_palette": "viridis"
+    }
+}
