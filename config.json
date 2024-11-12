@@ -12,6 +12,9 @@
         "metric": "silhouette"
     },
     "visualization": {
-        "color_palette": "viridis"
+        "color_palette": "viridis",
+        "alpha": 0.6,
+        "marker_size": 50,
+        "title": "Cluster Visualization"
     }
 }
