@@ -13,6 +13,8 @@ def load_csv(file_path):
     """
     try:
         data = pd.read_csv(file_path)
+
+
         print(f"Data loaded successfully from {file_path}")
         return data
     except FileNotFoundError:
@@ -21,6 +23,8 @@ def load_csv(file_path):
     except pd.errors.EmptyDataError:
         print("Error: The file is empty.")
         return None
+    except KeyError as e:
+        print(f"Error: One or more specified columns not found in data - {e}")
     except Exception as e:
         print(f"An unexpected error occurred: {e}")
         return None

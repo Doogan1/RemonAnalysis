@@ -12,9 +12,13 @@
         "metric": "silhouette"
     },
     "visualization": {
-        "color_palette": "viridis",
+        "diag_kind": "kde",
         "alpha": 0.6,
         "marker_size": 50,
-        "title": "Cluster Visualization"
-    }
+        "title": "Cluster Visualization",
+        "palette": "bright",
+        "highlight_county": "Van Buren",
+        "color_scale": "Bluered"
+    },
+    "include_columns": ["wetlandd","pop_d","roadoverarea"]
 }
