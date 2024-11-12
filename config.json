@@ -3,6 +3,7 @@
     "standardization": {
         "method": "z-score"
     },
+    "analysis_type": "knn",
     "clustering": {
         "method": "k-means",
         "max_clusters": 10,
@@ -10,6 +11,10 @@
     },
     "evaluation": {
         "metric": "silhouette"
+    },
+    "knn": {
+        "target_county": "Van Buren",
+        "n_neighbors": 5
     },
     "visualization": {
         "diag_kind": "kde",
