@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
+import numpy as np
 
 def visualize_clusters(data, cluster_labels, diag_kind="kde", alpha=0.6, marker_size=50, title="Cluster Visualization", palette="bright"):
     """
@@ -266,3 +267,56 @@ def visualize_3d_neighbors(data, target_county="Van Buren", neighbors=[], metric
     fig.show()
 
 
+
+def visualize_3d_with_costs(data, metrics=["Metric1", "Metric2", "Metric3"], county_column="County", cost_column="avg_cost_per_marker", use_log_scale=True):
+    """
+    Creates a 3D scatter plot of data points with sphere-like markers colored by avg cost per corner.
+    Optionally, applies a logarithmic scale for color to improve contrast in power-law distributed costs.
+
+    Parameters:
+    - data (pd.DataFrame): Data containing the metrics, county names, and avg cost per corner.
+    - metrics (list): List of three metric column names to plot in 3D space.
+    - county_column (str): Column name representing the county names.
+    - cost_column (str): Column representing the avg cost per corner for coloring.
+    - use_log_scale (bool): If True, applies a logarithmic scale to the cost column for coloring.
+
+    Returns:
+    - None: Displays the 3D plot.
+    """
+    if len(metrics) != 3:
+        print("Error: Please provide exactly three metrics for the 3D plot.")
+        return
+
+    # Apply log scale to the cost column if specified
+    color_values = np.log10(data[cost_column]) if use_log_scale else data[cost_column]
+
+    # Create 3D scatter plot
+    fig = go.Figure()
+
+    # Plot all counties with color based on the transformed cost values
+    fig.add_trace(go.Scatter3d(
+        x=data[metrics[0]],
+        y=data[metrics[1]],
+        z=data[metrics[2]],
+        mode='markers',
+        marker=dict(
+            size=8,
+            color=color_values,
+            colorscale="Viridis",  # Alternative: "Plasma" for more contrast at lower values
+            colorbar=dict(title="Avg Cost per Corner (log scale)" if use_log_scale else "Avg Cost per Corner")
+        ),
+        name="Counties",
+        text=data[county_column]  # Hover text for county names
+    ))
+
+    # Set plot title and axis labels
+    fig.update_layout(
+        title="3D Plot of Metrics Colored by Avg Cost per Corner",
+        scene=dict(
+            xaxis_title=metrics[0],
+            yaxis_title=metrics[1],
+            zaxis_title=metrics[2]
+        )
+    )
+
+    fig.show()

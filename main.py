@@ -9,7 +9,8 @@ from modules.visualization import (
     visualize_cost_distribution,
     visualize_target_neighbor_distribution,
     visualize_neighbor_cost_distribution,
-    visualize_3d_neighbors
+    visualize_3d_neighbors,
+    visualize_3d_with_costs
 )
 
 # Load configuration file
@@ -43,6 +44,8 @@ def run_knn_analysis(data, data_std, config):
         metrics=metrics,
         county_column="County"
     )
+
+    visualize_3d_with_costs(data_std, metrics=["wetlandd", "pop_d", "roadoverarea"])
 
     # Visualize the distribution for the target county's nearest neighbors
     visualize_target_neighbor_distribution(
