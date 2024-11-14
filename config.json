@@ -3,6 +3,9 @@
     "standardization": {
         "method": "z-score"
     },
+    "filters": {
+        "exclude_counties": ["Bay", "Kent", "Livingston","Mason","Menominee","Muskegon","Oakland","Ottawa"]
+    },
     "analysis_type": "knn",
     "clustering": {
         "method": "k-means",
@@ -14,7 +17,7 @@
     },
     "knn": {
         "target_county": "Van Buren",
-        "n_neighbors": 15,
+        "n_neighbors": 10,
         "metrics": ["wetlandd", "pop_d", "roadoverarea"]
     },
     "visualization": {

@@ -40,3 +40,26 @@ def standardize(data, include_columns=None, method="z-score"):
     except Exception as e:
         print(f"An error occurred during standardization: {e}")
         return None
+
+# modules/preprocess.py
+def filter_data(data, config):
+    """
+    Filters data based on criteria specified in the config file.
+
+    Parameters:
+    - data (pd.DataFrame): The input DataFrame to filter.
+    - config (dict): Configuration dictionary with filtering criteria.
+
+    Returns:
+    - pd.DataFrame: The filtered DataFrame.
+    """
+    # Filter based on excluded counties, if specified
+    exclude_counties = config.get("filters", {}).get("exclude_counties", [])
+    if exclude_counties:
+        if "NAME" in data.columns:
+            data = data[~data["NAME"].isin(exclude_counties)]
+            print(f"Excluding counties: {exclude_counties}. Rows remaining after filter: {len(data)}")
+        else:
+            print("Warning: 'NAME' column not found in data.")
+    return data
+

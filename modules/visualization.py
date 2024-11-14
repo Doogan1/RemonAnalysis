@@ -162,9 +162,13 @@ def visualize_neighbor_cost_distribution(data, cost_column="avg_cost_per_marker"
 
 
 
+
 def visualize_target_neighbor_distribution(neighbors_data, cost_column="avg_cost_per_marker", county_column="County", target_county="Van Buren"):
     """
-    Creates a combined box plot and scatter plot for the cost per marker of the target county and its nearest neighbors.
+    Creates a combined box plot and scatter plot for the cost per marker of:
+    1. The target county.
+    2. The nearest neighbors.
+    3. The target county combined with its nearest neighbors.
 
     Parameters:
     - neighbors_data (pd.DataFrame): Data containing the target county and its nearest neighbors.
@@ -175,23 +179,64 @@ def visualize_target_neighbor_distribution(neighbors_data, cost_column="avg_cost
     Returns:
     - None: Displays the plot.
     """
-    # Add a column to distinguish the target county for styling
-    neighbors_data["Is Target"] = neighbors_data[county_column] == target_county
-
-    # Create a box plot with individual points for each county
-    fig = px.box(
-        neighbors_data,
-        y=cost_column,
-        points="all",
-        hover_name=county_column,
-        color="Is Target",
-        title=f"Cost per Marker Distribution for {target_county} and Nearest Neighbors",
-        labels={cost_column: "Avg Cost per Marker", county_column: "County"}
+    # Add a column to distinguish between groups for plotting
+    neighbors_data["Group"] = neighbors_data[county_column].apply(
+        lambda x: "Target" if x == target_county else "Neighbors"
     )
 
-    fig.update_traces(marker=dict(size=10), selector=dict(type='box'))
+    # Add a third group that combines the target county with its neighbors
+    combined_data = neighbors_data.copy()
+    combined_data["Group"] = "Target + Neighbors"
+    
+    # Concatenate original and combined data
+    plot_data = pd.concat([neighbors_data, combined_data])
+
+    # Create separate traces for each group
+    fig = go.Figure()
+
+    # Target group plot with custom hover text
+    fig.add_trace(go.Box(
+        y=plot_data[plot_data["Group"] == "Target"][cost_column],
+        name="Target",
+        marker=dict(color="blue"),
+        boxpoints="all",
+        hovertext=plot_data[plot_data["Group"] == "Target"][county_column],  # County name hover text
+        hoverinfo="text+y"
+    ))
+
+    # Neighbors group plot with custom hover text
+    fig.add_trace(go.Box(
+        y=plot_data[plot_data["Group"] == "Neighbors"][cost_column],
+        name="Neighbors",
+        marker=dict(color="green"),
+        boxpoints="all",
+        hovertext=plot_data[plot_data["Group"] == "Neighbors"][county_column],  # County name hover text
+        hoverinfo="text+y",
+        offsetgroup=1  # Shift along the x-axis
+    ))
+
+    # Target + Neighbors combined group plot with custom hover text
+    fig.add_trace(go.Box(
+        y=plot_data[plot_data["Group"] == "Target + Neighbors"][cost_column],
+        name="Target + Neighbors",
+        marker=dict(color="purple"),
+        boxpoints="all",
+        hovertext=plot_data[plot_data["Group"] == "Target + Neighbors"][county_column],  # County name hover text
+        hoverinfo="text+y",
+        offsetgroup=2  # Further shift along the x-axis
+    ))
+
+    # Update layout to control spacing and appearance
+    fig.update_layout(
+        title=f"Cost per Marker Distribution for {target_county}, Nearest Neighbors, and Combined",
+        yaxis_title="Avg Cost per Marker",
+        xaxis_title="Group",
+        xaxis=dict(tickvals=[0, 1, 2], ticktext=["Target", "Neighbors", "Target + Neighbors"])
+    )
 
     fig.show()
+
+
 
 
 
