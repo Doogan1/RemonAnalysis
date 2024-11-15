@@ -77,6 +77,10 @@ The configuration file contains the settings used to control the pipeline. Below
 - **`show_labels`**: Determines how to display labels for scatter plots. Options:
   - `"on_hover"`: Show county names when hovering over points.
   - `"next_to_points"`: Show county names as text next to scatter points.
+- **`selected_groups`**: Selects which subset of groups to display in the box plot. Options:
+  - `"Target"`: Show just the target point and a degenerate box plot.
+  - `"Neighbors"`: Show the n_neighbors - nearest neighbors scatter and box plot.
+  - `"Target + Neighbors"`: Combine the target with its neighbors and plot the scatter points along with the box plot.
 
 ---
 
@@ -123,7 +127,8 @@ The configuration file contains the settings used to control the pipeline. Below
         "palette": "bright",
         "highlight_county": "Van Buren",
         "color_scale": "Bluered",
-        "show_labels": "next_to_points"
+        "show_labels": "next_to_points",
+        "selected_groups": ["Target","Neighbors"]
     },
     "include_columns": ["wetlandd", "pop_d", "roadoverarea"]
 }
