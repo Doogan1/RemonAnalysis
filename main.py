@@ -44,7 +44,15 @@ def run_knn_analysis(data, data_std, config):
         print("Warning: NaN values detected in metrics columns in data_std.")
 
     # Proceed with finding neighbors if target county is present
-    neighbors_data = find_target_neighbors(data, data_std, cost_column="avg_cost_per_marker", county_column="County", target_county=target_county, n_neighbors=config["knn"]["n_neighbors"], metrics=metrics)
+    neighbors_data = find_target_neighbors(
+        data, data_std,
+        cost_column="avg_cost_per_marker",
+        county_column="County",
+        target_county=target_county,
+        n_neighbors=config["knn"]["n_neighbors"],
+        metrics=metrics,
+        verbose=config["knn"].get("verbose", False)
+    )
     
     if neighbors_data is None:
         print("Error: Neighbors data was not returned. Exiting.")
