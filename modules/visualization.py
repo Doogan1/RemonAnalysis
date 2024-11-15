@@ -161,15 +161,22 @@ def visualize_neighbor_cost_distribution(data, cost_column="avg_cost_per_marker"
 
 
 
-def visualize_target_neighbor_distribution(neighbors_data, cost_column="avg_cost_per_marker", county_column="County", target_county="Van Buren", config=None):
+def visualize_target_neighbor_distribution(
+        neighbors_data,
+        cost_column="avg_cost_per_marker",
+        county_column="County",
+        target_county="Van Buren",
+        config=None
+    ):
     """
-    Creates a combined box plot and scatter plot for the cost per marker of:
-    1. The target county.
-    2. The nearest neighbors.
-    3. The target county combined with its nearest neighbors.
+    Creates a combined box plot and scatter plot for the cost per marker of specified groups:
+    - The target county.
+    - The nearest neighbors.
+    - The target county combined with its nearest neighbors.
     """
     config = config or {}  # Default to empty dict if None
     show_labels = config.get("visualization", {}).get("show_labels", "on_hover")
+    selected_groups = config.get("visualization", {}).get("selected_groups", ["Target", "Neighbors", "Target + Neighbors"])
 
     # Add a column to distinguish between groups for plotting
     neighbors_data["Group"] = neighbors_data[county_column].apply(
@@ -183,8 +190,11 @@ def visualize_target_neighbor_distribution(neighbors_data, cost_column="avg_cost
     # Concatenate original and combined data
     plot_data = pd.concat([neighbors_data, combined_data])
 
-    # Define x positions for each group with added spacing
-    group_positions = {"Target": 0, "Neighbors": 4, "Target + Neighbors": 8}  # Add more space between groups
+    # Filter plot_data based on selected groups
+    plot_data = plot_data[plot_data["Group"].isin(selected_groups)]
+
+    # Dynamically assign x positions based on selected groups
+    group_positions = {group: i * 4 for i, group in enumerate(selected_groups)}
 
     # Precompute jittered x-values for unique rows
     unique_data = plot_data.drop_duplicates(subset=[county_column, "Group"])
@@ -219,7 +229,7 @@ def visualize_target_neighbor_distribution(neighbors_data, cost_column="avg_cost
         """Helper function to add custom scatter points with labels."""
         group_data = plot_data[plot_data["Group"] == group_name]
         fig.add_trace(go.Scatter(
-            x=group_data["Jittered X"] + x_offset,
+            x=group_data["Jittered X"] + group_positions[group_name] - x_offset,
             y=group_data[cost_column],
             mode="markers+text" if show_labels == "next_to_points" else "markers",
             text=group_data[county_column] if show_labels == "next_to_points" else None,
@@ -228,36 +238,25 @@ def visualize_target_neighbor_distribution(neighbors_data, cost_column="avg_cost
             showlegend=False  # Scatter traces do not need a separate legend entry
         ))
 
-    # Add box and scatter traces for Target, Neighbors, and Target + Neighbors
-    add_scatter_trace("Target", "blue", -2.5)
-    add_box_trace("Target", "blue")
-
-    add_scatter_trace("Neighbors", "green", 2)
-    add_box_trace("Neighbors", "green")
-
-    add_scatter_trace("Target + Neighbors", "purple", 6)
-    add_box_trace("Target + Neighbors", "purple")
+    # Add box and scatter traces for each selected group
+    colors = {"Target": "blue", "Neighbors": "green", "Target + Neighbors": "purple"}
+    for group in selected_groups:
+        add_scatter_trace(group, colors[group])
+        add_box_trace(group, colors[group])
 
     # Update layout for spacing and appearance
     fig.update_layout(
-        title=f"Cost per Marker Distribution for {target_county}, Nearest Neighbors, and Combined",
+        title=f"Cost per Marker Distribution for {target_county} and Selected Groups",
         yaxis_title="Avg Cost per Marker",
         xaxis=dict(
             title="Group",
-            tickvals=list(group_positions.values()),
-            ticktext=list(group_positions.keys()),
+            tickvals=[group_positions[group] for group in selected_groups],
+            ticktext=selected_groups,
         ),
         showlegend=False
     )
 
     fig.show()
-
-
-
-
-
-
-
 
 
 

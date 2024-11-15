@@ -29,7 +29,8 @@
         "palette": "bright",
         "highlight_county": "Van Buren",
         "color_scale": "Bluered",
-        "show_labels": "next_to_points"
+        "show_labels": "next_to_points",
+        "selected_groups": ["Target","Neighbors"]
     },
     "include_columns": ["wetlandd","pop_d","roadoverarea"]
 }
