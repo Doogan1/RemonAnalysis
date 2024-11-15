@@ -69,7 +69,8 @@ def run_knn_analysis(data, data_std, config):
         neighbors_data, 
         cost_column="avg_cost_per_marker", 
         county_column="County",
-        target_county=target_county
+        target_county=target_county,
+        config=config
     )
 
 

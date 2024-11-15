@@ -27,7 +27,8 @@
         "title": "Cluster Visualization",
         "palette": "bright",
         "highlight_county": "Van Buren",
-        "color_scale": "Bluered"
+        "color_scale": "Bluered",
+        "show_labels": "next_to_points"
     },
     "include_columns": ["wetlandd","pop_d","roadoverarea"]
 }

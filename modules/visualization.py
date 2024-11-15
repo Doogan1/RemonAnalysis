@@ -161,24 +161,16 @@ def visualize_neighbor_cost_distribution(data, cost_column="avg_cost_per_marker"
 
 
 
-
-
-def visualize_target_neighbor_distribution(neighbors_data, cost_column="avg_cost_per_marker", county_column="County", target_county="Van Buren"):
+def visualize_target_neighbor_distribution(neighbors_data, cost_column="avg_cost_per_marker", county_column="County", target_county="Van Buren", config=None):
     """
     Creates a combined box plot and scatter plot for the cost per marker of:
     1. The target county.
     2. The nearest neighbors.
     3. The target county combined with its nearest neighbors.
-
-    Parameters:
-    - neighbors_data (pd.DataFrame): Data containing the target county and its nearest neighbors.
-    - cost_column (str): The column representing the cost per marker.
-    - county_column (str): The column representing the county name.
-    - target_county (str): Name of the target county to highlight.
-
-    Returns:
-    - None: Displays the plot.
     """
+    config = config or {}  # Default to empty dict if None
+    show_labels = config.get("visualization", {}).get("show_labels", "on_hover")
+
     # Add a column to distinguish between groups for plotting
     neighbors_data["Group"] = neighbors_data[county_column].apply(
         lambda x: "Target" if x == target_county else "Neighbors"
@@ -187,54 +179,84 @@ def visualize_target_neighbor_distribution(neighbors_data, cost_column="avg_cost
     # Add a third group that combines the target county with its neighbors
     combined_data = neighbors_data.copy()
     combined_data["Group"] = "Target + Neighbors"
-    
+
     # Concatenate original and combined data
     plot_data = pd.concat([neighbors_data, combined_data])
 
-    # Create separate traces for each group
+    # Define x positions for each group with added spacing
+    group_positions = {"Target": 0, "Neighbors": 4, "Target + Neighbors": 8}  # Add more space between groups
+
+    # Precompute jittered x-values for unique rows
+    unique_data = plot_data.drop_duplicates(subset=[county_column, "Group"])
+    unique_data["Jittered X"] = np.random.uniform(
+        -0.5, 0.5, size=unique_data.shape[0]
+    )
+
+    # Map the jittered x-values back to the full dataset
+    plot_data["Jittered X"] = plot_data.merge(
+        unique_data[[county_column, "Group", "Jittered X"]],
+        on=[county_column, "Group"],
+        how="left"
+    )["Jittered X"]
+
+    # Create the figure
     fig = go.Figure()
 
-    # Target group plot with custom hover text
-    fig.add_trace(go.Box(
-        y=plot_data[plot_data["Group"] == "Target"][cost_column],
-        name="Target",
-        marker=dict(color="blue"),
-        boxpoints="all",
-        hovertext=plot_data[plot_data["Group"] == "Target"][county_column],  # County name hover text
-        hoverinfo="text+y"
-    ))
+    def add_box_trace(group_name, color):
+        """Helper function to add box traces."""
+        fig.add_trace(go.Box(
+            y=plot_data[plot_data["Group"] == group_name][cost_column],
+            x=[group_positions[group_name]] * plot_data[plot_data["Group"] == group_name].shape[0],  # Fix x-position
+            name=group_name,
+            marker=dict(color=color),
+            boxpoints=False,  # Disable default scatter points
+            hovertext=plot_data[plot_data["Group"] == group_name][county_column] if show_labels == "on_hover" else None,
+            hoverinfo="text+y" if show_labels == "on_hover" else "y",
+            offsetgroup=group_positions[group_name]
+        ))
 
-    # Neighbors group plot with custom hover text
-    fig.add_trace(go.Box(
-        y=plot_data[plot_data["Group"] == "Neighbors"][cost_column],
-        name="Neighbors",
-        marker=dict(color="green"),
-        boxpoints="all",
-        hovertext=plot_data[plot_data["Group"] == "Neighbors"][county_column],  # County name hover text
-        hoverinfo="text+y",
-        offsetgroup=1  # Shift along the x-axis
-    ))
+    def add_scatter_trace(group_name, color, x_offset=2):
+        """Helper function to add custom scatter points with labels."""
+        group_data = plot_data[plot_data["Group"] == group_name]
+        fig.add_trace(go.Scatter(
+            x=group_data["Jittered X"] + x_offset,
+            y=group_data[cost_column],
+            mode="markers+text" if show_labels == "next_to_points" else "markers",
+            text=group_data[county_column] if show_labels == "next_to_points" else None,
+            textposition="middle right",
+            marker=dict(color=color, size=8),
+            showlegend=False  # Scatter traces do not need a separate legend entry
+        ))
 
-    # Target + Neighbors combined group plot with custom hover text
-    fig.add_trace(go.Box(
-        y=plot_data[plot_data["Group"] == "Target + Neighbors"][cost_column],
-        name="Target + Neighbors",
-        marker=dict(color="purple"),
-        boxpoints="all",
-        hovertext=plot_data[plot_data["Group"] == "Target + Neighbors"][county_column],  # County name hover text
-        hoverinfo="text+y",
-        offsetgroup=2  # Further shift along the x-axis
-    ))
+    # Add box and scatter traces for Target, Neighbors, and Target + Neighbors
+    add_scatter_trace("Target", "blue", -2.5)
+    add_box_trace("Target", "blue")
 
-    # Update layout to control spacing and appearance
+    add_scatter_trace("Neighbors", "green", 2)
+    add_box_trace("Neighbors", "green")
+
+    add_scatter_trace("Target + Neighbors", "purple", 6)
+    add_box_trace("Target + Neighbors", "purple")
+
+    # Update layout for spacing and appearance
     fig.update_layout(
         title=f"Cost per Marker Distribution for {target_county}, Nearest Neighbors, and Combined",
         yaxis_title="Avg Cost per Marker",
-        xaxis_title="Group",
-        xaxis=dict(tickvals=[0, 1, 2], ticktext=["Target", "Neighbors", "Target + Neighbors"])
+        xaxis=dict(
+            title="Group",
+            tickvals=list(group_positions.values()),
+            ticktext=list(group_positions.keys()),
+        ),
+        showlegend=False
     )
 
     fig.show()
+
+
+
+
+
+
 
 
 
