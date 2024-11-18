@@ -247,7 +247,7 @@ def visualize_target_neighbor_distribution(
     # Update layout for spacing and appearance
     fig.update_layout(
         title={
-            "text": f"Cost per Marker Distribution for {target_county} and Selected Groups",
+            "text": f"Cost per Corner Distribution for {target_county} and {len(neighbors_data)-1} Nearest Neighbors",
             "x": 0.5,  # Centers the title (0 is left, 1 is right)
             "xanchor": "center",  # Ensures the title is centered
             "font": {
@@ -331,7 +331,15 @@ def visualize_3d_neighbors(data, target_county="Van Buren", neighbors=[], metric
 
     # Set plot title and labels
     fig.update_layout(
-        title=f"3D Plot of Metrics Showing Nearest Neighbors of {target_county}",
+        title={
+            "text": f"3D Plot of Metrics Showing Nearest Neighbors of {target_county}",
+            "x": 0.5,  # Centers the title (0 is left, 1 is right)
+            "xanchor": "center",  # Ensures the title is centered
+            "font": {
+                "size": 24,  # Adjust the font size
+                "family": "Arial, sans-serif"  # Optional: Specify a font family
+            }
+        },
         scene=dict(
             xaxis_title=metrics[0],
             yaxis_title=metrics[1],
@@ -386,7 +394,15 @@ def visualize_3d_with_costs(data, metrics=["Metric1", "Metric2", "Metric3"], cou
 
     # Set plot title and axis labels
     fig.update_layout(
-        title="3D Plot of Metrics Colored by Avg Cost per Corner",
+        title={
+            "text":"3D Plot of Metrics Colored by Avg Cost per Corner",
+            "x": 0.5,  # Centers the title (0 is left, 1 is right)
+            "xanchor": "center",  # Ensures the title is centered
+            "font": {
+                "size": 24,  # Adjust the font size
+                "family": "Arial, sans-serif"  # Optional: Specify a font family
+            }
+        },
         scene=dict(
             xaxis_title=metrics[0],
             yaxis_title=metrics[1],
