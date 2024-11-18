@@ -96,10 +96,15 @@ def find_target_neighbors(data, data_std,
     # Extract neighbors' avg_cost_per_marker and county names from original data
     neighbors_data = data[data[county_column].isin(neighbor_counties)][[county_column, cost_column]]
     log("Step 9: Neighbors' data extracted with cost values.")
+    log(f"Step 9b: Neighbor counties in knn_data: {neighbor_counties}")
+    log(f"Step 9c: Neighbor counties in data: {data[county_column].unique()}")
+    log(f"step 9ci: Length of neighbor counties in data: {len(data[county_column].unique())}")
+    log(f"Step 9d: Filtered neighbors_data:\n{neighbors_data}")
 
     # Add target county’s data to the neighbors data
     target_data = data[data[county_column] == target_county][[county_column, cost_column]]
     neighbors_data = pd.concat([target_data, neighbors_data], ignore_index=True)
+    print(neighbors_data)
     log("Step 10: Target county data added to neighbors data.")
 
     return neighbors_data

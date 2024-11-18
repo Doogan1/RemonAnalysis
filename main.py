@@ -115,17 +115,16 @@ def run_pipeline(config):
 
     # Apply filtering based on config
     data = filter_data(data, config)
-    print("Data filtered based on criteria in config.json.")
-
+    
     # Verify that the target county is still in the data after filtering
     target_county = config["knn"]["target_county"]
     if target_county not in data["NAME"].values:
         print(f"Error: Target county '{target_county}' was filtered out. Check filter criteria.")
         return  # Exit early if target county is missing
 
-    # Extract columns for reference and exclude them from features to standardize
-    county_names = data["NAME"].reset_index(drop=True)  # Reset index to avoid misalignment
-    cost_per_corner = data["Aveverage Spent per Corner Completed"].reset_index(drop=True)
+    # Extract columns for reference
+    county_names = data["NAME"]
+    cost_per_corner = data["Aveverage Spent per Corner Completed"]
 
     # Preprocess: Standardize only the clustering features
     features_to_standardize = data.drop(columns=["NAME", "Aveverage Spent per Corner Completed"])
@@ -134,16 +133,16 @@ def run_pipeline(config):
         print("Exiting pipeline due to preprocessing error.")
         return
 
-    # Ensure all rows in `data_std` have consistent index and add columns
-    data_std = data_std.reset_index(drop=True)  # Reset index after standardizing
+    # Add the reference columns back to the standardized data
     data_std["avg_cost_per_marker"] = cost_per_corner
     data_std["County"] = county_names
 
-    # Verify that no NaN values are in the `County` column after assignment
+    # Verify that no NaN values are in the 'County' column after assignment
     if data_std["County"].isnull().any():
-        print("Error: NaN values still detected in 'County' column of data_std after assignment.")
+        print("Error: NaN values detected in 'County' column of data_std after assignment.")
+        return  # Exit if data is invalid
 
-    # Keep original data columns intact in `data` for any raw-data analysis
+    # Keep original data columns intact in 'data' for any raw-data analysis
     data["County"] = county_names
     data["avg_cost_per_marker"] = cost_per_corner
 
@@ -155,6 +154,7 @@ def run_pipeline(config):
         run_clustering_analysis(data_std, config)
     else:
         print(f"Unknown analysis type: {analysis_type}")
+
 
 
 
