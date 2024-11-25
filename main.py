@@ -1,4 +1,5 @@
 import json
+import pandas as pd
 from modules.load_data import load_csv
 from modules.preprocess import (
     standardize,
@@ -105,6 +106,40 @@ def run_clustering_analysis(data_std, config):
     # Visualize cost distribution for each cluster
     visualize_cost_distribution(data_std, cluster_labels, cost_column="avg_cost_per_marker", name_column="County")
 
+def find_neighbors_for_all(data, data_std, config, output_file="data/raw/county_neighbors.csv"):
+    """
+    Find the nearest neighbors for all counties in the dataset and save to a CSV.
+    """
+    results = []
+
+    # Iterate over all counties in the dataset
+    for county in data_std["County"].unique():
+        print(f"Processing neighbors for: {county}")
+        neighbors_data = find_target_neighbors(
+            data=data,
+            data_std=data_std,
+            cost_column="avg_cost_per_marker",
+            county_column="County",
+            target_county=county,
+            n_neighbors=config["knn"]["n_neighbors"],
+            metrics=config["knn"]["metrics"],
+            verbose=config["knn"].get("verbose", False)
+        )
+
+        if neighbors_data is not None:
+            # Add source county to the results
+            neighbors_data["SourceCounty"] = county
+            results.append(neighbors_data)
+
+    # Combine all results into a single DataFrame
+    all_neighbors = pd.concat(results, ignore_index=True)
+
+    # Save to CSV
+    all_neighbors.to_csv(output_file, index=False)
+    print(f"All counties' nearest neighbors saved to {output_file}")
+
+    return all_neighbors
+
 
 def run_pipeline(config):
     # Load data
@@ -152,6 +187,8 @@ def run_pipeline(config):
         run_knn_analysis(data, data_std, config)
     elif analysis_type == "clustering":
         run_clustering_analysis(data_std, config)
+    elif analysis_type == "all_neighbors":
+        find_neighbors_for_all(data, data_std, config)
     else:
         print(f"Unknown analysis type: {analysis_type}")
 

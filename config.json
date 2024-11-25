@@ -1,12 +1,12 @@
 {
-    "file_path": "data/pop_wetland_road_by_county.csv",
+    "file_path": "data/raw/pop_wetland_road_by_county.csv",
     "standardization": {
         "method": "z-score"
     },
     "filters": {
         "exclude_counties": ["Bay", "Kent", "Livingston","Mason","Menominee","Muskegon","Oakland","Ottawa"]
     },
-    "analysis_type": "knn",
+    "analysis_type": "all_neighbors",
     "clustering": {
         "method": "k-means",
         "max_clusters": 10,
@@ -19,7 +19,7 @@
         "target_county": "Van Buren",
         "n_neighbors": 10,
         "metrics": ["wetlandd", "pop_d", "roadoverarea"],
-        "verbose": true
+        "verbose": false
     },
     "visualization": {
         "diag_kind": "kde",

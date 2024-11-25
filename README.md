@@ -12,7 +12,7 @@ The configuration file contains the settings used to control the pipeline. Below
 - **`analysis_type`**: Determines which analysis to run. Options:
   - `"knn"`: Runs the k-nearest neighbors analysis.
   - `"clustering"`: Runs clustering analysis.
-
+  - `"all_neighbors"`: Finds k-nearest neighbors of each county and saves to a csv.
 ---
 
 ### Standardization Settings (`standardization`)
