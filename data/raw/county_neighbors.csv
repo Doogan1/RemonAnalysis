@@ -3,33 +3,33 @@ Alcona,768.44,Alcona
 Alger,910.19,Alcona
 Antrim,1139.45,Alcona
 Baraga,1092.72,Alcona
-Clare,709.14,Alcona
-Emmet,1152.14,Alcona
 Houghton,1195.81,Alcona
-Iosco,892.77,Alcona
+Iron,480.42,Alcona
+Kalkaska,547.43,Alcona
+Marquette,1321.73,Alcona
 Missaukee,653.48,Alcona
 Montmorency,623.69,Alcona
 Ogemaw,916.2,Alcona
 Alger,910.19,Alger
 Alcona,768.44,Alger
 Baraga,1092.72,Alger
-Charlevoix,1410.45,Alger
 Dickinson,554.11,Alger
 Gogebic,554.11,Alger
+Houghton,1195.81,Alger
 Iron,480.42,Alger
 Keweenaw,1067.27,Alger
 Marquette,1321.73,Alger
 Missaukee,653.48,Alger
 Montmorency,623.69,Alger
 Allegan,751.4,Allegan
-Cass,966.94,Allegan
+Barry,645.22,Allegan
+Calhoun,776.95,Allegan
+Clinton,938.03,Allegan
 Eaton,787.96,Allegan
 Grand Traverse,836.55,Allegan
 Isabella,728.87,Allegan
 Lapeer,977.09,Allegan
-Mecosta,525.52,Allegan
-Oceana,642.63,Allegan
-St. Clair,1678.03,Allegan
+Shiawassee,848.71,Allegan
 St. Joseph,927.18,Allegan
 Van Buren,1189.7,Allegan
 Alpena,815.5,Alpena
@@ -44,10 +44,10 @@ Marquette,1321.73,Alpena
 Presque Isle,679.8,Alpena
 Roscommon,802.46,Alpena
 Antrim,1139.45,Antrim
-Barry,645.22,Antrim
 Benzie,595.49,Antrim
-Branch,832.06,Antrim
-Cass,966.94,Antrim
+Clare,709.14,Antrim
+Emmet,1152.14,Antrim
+Iosco,892.77,Antrim
 Kalkaska,547.43,Antrim
 Leelanau,801.3,Antrim
 Manistee,621.82,Antrim
@@ -55,14 +55,14 @@ Newaygo,692.39,Antrim
 Ogemaw,916.2,Antrim
 Osceola,539.31,Antrim
 Arenac,934.41,Arenac
-Alcona,768.44,Arenac
+Antrim,1139.45,Arenac
 Benzie,595.49,Arenac
 Charlevoix,1410.45,Arenac
+Cheboygan,703.96,Arenac
 Clare,709.14,Arenac
 Emmet,1152.14,Arenac
 Gladwin,759.68,Arenac
 Iosco,892.77,Arenac
-Midland,802.06,Arenac
 Missaukee,653.48,Arenac
 Ogemaw,916.2,Arenac
 Baraga,1092.72,Baraga
@@ -77,40 +77,41 @@ Marquette,1321.73,Baraga
 Missaukee,653.48,Baraga
 Montmorency,623.69,Baraga
 Barry,645.22,Barry
-Benzie,595.49,Barry
+Allegan,751.4,Barry
 Branch,832.06,Barry
 Cass,966.94,Barry
 Isabella,728.87,Barry
+Lapeer,977.09,Barry
 Leelanau,801.3,Barry
-Manistee,621.82,Barry
 Mecosta,525.52,Barry
 Montcalm,760.74,Barry
 St. Joseph,927.18,Barry
 Van Buren,1189.7,Barry
 Benzie,595.49,Benzie
 Antrim,1139.45,Benzie
-Barry,645.22,Benzie
 Branch,832.06,Benzie
 Clare,709.14,Benzie
 Emmet,1152.14,Benzie
 Iosco,892.77,Benzie
-Mecosta,525.52,Benzie
-Montcalm,760.74,Benzie
+Leelanau,801.3,Benzie
+Manistee,621.82,Benzie
+Newaygo,692.39,Benzie
 Ogemaw,916.2,Benzie
 Osceola,539.31,Benzie
 Berrien,1208.9,Berrien
 Allegan,751.4,Berrien
+Calhoun,776.95,Berrien
 Clinton,938.03,Berrien
 Eaton,787.96,Berrien
 Grand Traverse,836.55,Berrien
-Ingham,1029.19,Berrien
+Jackson,867.47,Berrien
 Kalamazoo,1189.2,Berrien
 Monroe,1095.1,Berrien
 Saginaw,1017.52,Berrien
 St. Clair,1678.03,Berrien
-Washtenaw,1373.27,Berrien
 Branch,832.06,Branch
 Barry,645.22,Branch
+Benzie,595.49,Branch
 Cass,966.94,Branch
 Isabella,728.87,Branch
 Leelanau,801.3,Branch
@@ -118,50 +119,49 @@ Manistee,621.82,Branch
 Mecosta,525.52,Branch
 Montcalm,760.74,Branch
 Newaygo,692.39,Branch
-Osceola,539.31,Branch
 St. Joseph,927.18,Branch
 Calhoun,776.95,Calhoun
 Allegan,751.4,Calhoun
 Barry,645.22,Calhoun
-Benzie,595.49,Calhoun
-Branch,832.06,Calhoun
-Cass,966.94,Calhoun
-Emmet,1152.14,Calhoun
+Eaton,787.96,Calhoun
+Grand Traverse,836.55,Calhoun
 Jackson,867.47,Calhoun
-Mecosta,525.52,Calhoun
-Montcalm,760.74,Calhoun
+Lapeer,977.09,Calhoun
+Midland,802.06,Calhoun
+St. Clair,1678.03,Calhoun
+St. Joseph,927.18,Calhoun
 Van Buren,1189.7,Calhoun
 Cass,966.94,Cass
 Barry,645.22,Cass
 Branch,832.06,Cass
+Ionia,820.09,Cass
 Isabella,728.87,Cass
 Lapeer,977.09,Cass
 Leelanau,801.3,Cass
-Manistee,621.82,Cass
 Mecosta,525.52,Cass
+Montcalm,760.74,Cass
 Newaygo,692.39,Cass
-Osceola,539.31,Cass
 St. Joseph,927.18,Cass
 Charlevoix,1410.45,Charlevoix
+Antrim,1139.45,Charlevoix
 Arenac,934.41,Charlevoix
+Benzie,595.49,Charlevoix
 Cheboygan,703.96,Charlevoix
 Clare,709.14,Charlevoix
-Dickinson,554.11,Charlevoix
 Emmet,1152.14,Charlevoix
 Gladwin,759.68,Charlevoix
 Iosco,892.77,Charlevoix
-Marquette,1321.73,Charlevoix
-Midland,802.06,Charlevoix
 Missaukee,653.48,Charlevoix
+Ogemaw,916.2,Charlevoix
 Cheboygan,703.96,Cheboygan
 Alpena,815.5,Cheboygan
 Arenac,934.41,Cheboygan
 Charlevoix,1410.45,Cheboygan
 Dickinson,554.11,Cheboygan
 Gladwin,759.68,Cheboygan
-Gogebic,554.11,Cheboygan
-Iron,480.42,Cheboygan
+Iosco,892.77,Cheboygan
 Marquette,1321.73,Cheboygan
+Missaukee,653.48,Cheboygan
 Presque Isle,679.8,Cheboygan
 Roscommon,802.46,Cheboygan
 Chippewa,762.47,Chippewa
@@ -176,32 +176,32 @@ Presque Isle,679.8,Chippewa
 Roscommon,802.46,Chippewa
 Schoolcraft,790.13,Chippewa
 Clare,709.14,Clare
-Alcona,768.44,Clare
 Antrim,1139.45,Clare
 Arenac,934.41,Clare
 Benzie,595.49,Clare
+Charlevoix,1410.45,Clare
 Emmet,1152.14,Clare
 Iosco,892.77,Clare
-Missaukee,653.48,Clare
-Montcalm,760.74,Clare
+Leelanau,801.3,Clare
+Newaygo,692.39,Clare
 Ogemaw,916.2,Clare
 Osceola,539.31,Clare
 Clinton,938.03,Clinton
+Allegan,751.4,Clinton
+Cass,966.94,Clinton
 Eaton,787.96,Clinton
 Gratiot,781.18,Clinton
-Hillsdale,922.74,Clinton
 Ionia,820.09,Clinton
-Lake,574.48,Clinton
+Isabella,728.87,Clinton
 Lapeer,977.09,Clinton
 Lenawee,880.36,Clinton
 Shiawassee,848.71,Clinton
-Tuscola,894.46,Clinton
-Wexford,744.18,Clinton
+St. Joseph,927.18,Clinton
 Crawford,833.81,Crawford
 Gratiot,781.18,Crawford
 Hillsdale,922.74,Crawford
 Huron,830.78,Crawford
-Ionia,820.09,Crawford
+Kalkaska,547.43,Crawford
 Lake,574.48,Crawford
 Oscoda,552.25,Crawford
 Otsego,766.63,Crawford
@@ -220,76 +220,76 @@ Presque Isle,679.8,Delta
 Roscommon,802.46,Delta
 Schoolcraft,790.13,Delta
 Dickinson,554.11,Dickinson
+Alcona,768.44,Dickinson
 Alger,910.19,Dickinson
-Arenac,934.41,Dickinson
-Charlevoix,1410.45,Dickinson
+Baraga,1092.72,Dickinson
 Cheboygan,703.96,Dickinson
 Gladwin,759.68,Dickinson
 Gogebic,554.11,Dickinson
 Iron,480.42,Dickinson
-Keweenaw,1067.27,Dickinson
 Marquette,1321.73,Dickinson
+Missaukee,653.48,Dickinson
 Presque Isle,679.8,Dickinson
 Eaton,787.96,Eaton
 Allegan,751.4,Eaton
+Calhoun,776.95,Eaton
 Clinton,938.03,Eaton
 Grand Traverse,836.55,Eaton
-Ionia,820.09,Eaton
-Isabella,728.87,Eaton
 Lapeer,977.09,Eaton
+Lenawee,880.36,Eaton
 Saginaw,1017.52,Eaton
 Shiawassee,848.71,Eaton
 St. Clair,1678.03,Eaton
 St. Joseph,927.18,Eaton
 Emmet,1152.14,Emmet
 Antrim,1139.45,Emmet
-Barry,645.22,Emmet
 Benzie,595.49,Emmet
 Branch,832.06,Emmet
 Clare,709.14,Emmet
 Iosco,892.77,Emmet
-Missaukee,653.48,Emmet
+Leelanau,801.3,Emmet
 Montcalm,760.74,Emmet
+Newaygo,692.39,Emmet
 Ogemaw,916.2,Emmet
 Osceola,539.31,Emmet
 Genesee,1439.92,Genesee
-Allegan,751.4,Genesee
 Berrien,1208.9,Genesee
 Eaton,787.96,Genesee
 Grand Traverse,836.55,Genesee
 Ingham,1029.19,Genesee
+Jackson,867.47,Genesee
 Kalamazoo,1189.2,Genesee
 Monroe,1095.1,Genesee
 Saginaw,1017.52,Genesee
 St. Clair,1678.03,Genesee
 Washtenaw,1373.27,Genesee
 Gladwin,759.68,Gladwin
+Alcona,768.44,Gladwin
 Arenac,934.41,Gladwin
 Charlevoix,1410.45,Gladwin
 Cheboygan,703.96,Gladwin
+Clare,709.14,Gladwin
 Dickinson,554.11,Gladwin
-Gogebic,554.11,Gladwin
+Emmet,1152.14,Gladwin
 Iosco,892.77,Gladwin
-Iron,480.42,Gladwin
-Marquette,1321.73,Gladwin
-Midland,802.06,Gladwin
 Missaukee,653.48,Gladwin
+Roscommon,802.46,Gladwin
 Gogebic,554.11,Gogebic
 Alcona,768.44,Gogebic
 Alger,910.19,Gogebic
 Baraga,1092.72,Gogebic
-Charlevoix,1410.45,Gogebic
 Dickinson,554.11,Gogebic
-Gladwin,759.68,Gogebic
+Houghton,1195.81,Gogebic
 Iron,480.42,Gogebic
 Keweenaw,1067.27,Gogebic
 Marquette,1321.73,Gogebic
 Missaukee,653.48,Gogebic
+Montmorency,623.69,Gogebic
 Grand Traverse,836.55,Grand Traverse
 Allegan,751.4,Grand Traverse
+Calhoun,776.95,Grand Traverse
 Clinton,938.03,Grand Traverse
 Eaton,787.96,Grand Traverse
-Isabella,728.87,Grand Traverse
 Lapeer,977.09,Grand Traverse
 Saginaw,1017.52,Grand Traverse
 Shiawassee,848.71,Grand Traverse
@@ -297,136 +297,136 @@ St. Clair,1678.03,Grand Traverse
 St. Joseph,927.18,Grand Traverse
 Van Buren,1189.7,Grand Traverse
 Gratiot,781.18,Gratiot
-Clinton,938.03,Gratiot
-Crawford,833.81,Gratiot
 Hillsdale,922.74,Gratiot
 Huron,830.78,Gratiot
 Ionia,820.09,Gratiot
+Isabella,728.87,Gratiot
 Lake,574.48,Gratiot
 Lenawee,880.36,Gratiot
+Oceana,642.63,Gratiot
 Shiawassee,848.71,Gratiot
 Tuscola,894.46,Gratiot
 Wexford,744.18,Gratiot
 Hillsdale,922.74,Hillsdale
-Clinton,938.03,Hillsdale
-Crawford,833.81,Hillsdale
+Branch,832.06,Hillsdale
 Gratiot,781.18,Hillsdale
 Ionia,820.09,Hillsdale
-Lake,574.48,Hillsdale
+Isabella,728.87,Hillsdale
+Leelanau,801.3,Hillsdale
+Newaygo,692.39,Hillsdale
 Oceana,642.63,Hillsdale
 Otsego,766.63,Hillsdale
-Shiawassee,848.71,Hillsdale
 Tuscola,894.46,Hillsdale
 Wexford,744.18,Hillsdale
 Houghton,1195.81,Houghton
 Alcona,768.44,Houghton
+Alger,910.19,Houghton
 Antrim,1139.45,Houghton
 Baraga,1092.72,Houghton
+Iron,480.42,Houghton
 Kalkaska,547.43,Houghton
-Leelanau,801.3,Houghton
+Keweenaw,1067.27,Houghton
 Missaukee,653.48,Houghton
 Montmorency,623.69,Houghton
-Newaygo,692.39,Houghton
-Ogemaw,916.2,Houghton
-Osceola,539.31,Houghton
+Ontonagon,790.15,Houghton
 Huron,830.78,Huron
 Crawford,833.81,Huron
 Gratiot,781.18,Huron
 Hillsdale,922.74,Huron
-Ionia,820.09,Huron
+Kalkaska,547.43,Huron
 Lake,574.48,Huron
-Lenawee,880.36,Huron
 Oscoda,552.25,Huron
+Otsego,766.63,Huron
 Sanilac,831.49,Huron
 Tuscola,894.46,Huron
 Wexford,744.18,Huron
 Ingham,1029.19,Ingham
-Allegan,751.4,Ingham
 Berrien,1208.9,Ingham
 Eaton,787.96,Ingham
 Genesee,1439.92,Ingham
 Grand Traverse,836.55,Ingham
+Jackson,867.47,Ingham
 Kalamazoo,1189.2,Ingham
 Monroe,1095.1,Ingham
 Saginaw,1017.52,Ingham
 St. Clair,1678.03,Ingham
 Washtenaw,1373.27,Ingham
 Ionia,820.09,Ionia
+Cass,966.94,Ionia
 Clinton,938.03,Ionia
 Gratiot,781.18,Ionia
 Hillsdale,922.74,Ionia
-Lake,574.48,Ionia
+Isabella,728.87,Ionia
 Lapeer,977.09,Ionia
 Lenawee,880.36,Ionia
-Oceana,642.63,Ionia
 Shiawassee,848.71,Ionia
-Tuscola,894.46,Ionia
+St. Joseph,927.18,Ionia
 Wexford,744.18,Ionia
 Iosco,892.77,Iosco
-Alcona,768.44,Iosco
 Antrim,1139.45,Iosco
 Arenac,934.41,Iosco
 Benzie,595.49,Iosco
 Charlevoix,1410.45,Iosco
 Clare,709.14,Iosco
 Emmet,1152.14,Iosco
-Midland,802.06,Iosco
+Gladwin,759.68,Iosco
 Missaukee,653.48,Iosco
 Ogemaw,916.2,Iosco
+Osceola,539.31,Iosco
 Iron,480.42,Iron
 Alcona,768.44,Iron
 Alger,910.19,Iron
 Baraga,1092.72,Iron
-Charlevoix,1410.45,Iron
 Dickinson,554.11,Iron
-Gladwin,759.68,Iron
 Gogebic,554.11,Iron
+Houghton,1195.81,Iron
 Keweenaw,1067.27,Iron
 Marquette,1321.73,Iron
 Missaukee,653.48,Iron
+Montmorency,623.69,Iron
 Isabella,728.87,Isabella
-Allegan,751.4,Isabella
+Barry,645.22,Isabella
 Branch,832.06,Isabella
 Cass,966.94,Isabella
+Hillsdale,922.74,Isabella
+Ionia,820.09,Isabella
 Lapeer,977.09,Isabella
-Leelanau,801.3,Isabella
-Manistee,621.82,Isabella
 Mecosta,525.52,Isabella
-Newaygo,692.39,Isabella
-Oceana,642.63,Isabella
+Montcalm,760.74,Isabella
+Shiawassee,848.71,Isabella
 St. Joseph,927.18,Isabella
 Jackson,867.47,Jackson
-Arenac,934.41,Jackson
+Allegan,751.4,Jackson
 Barry,645.22,Jackson
-Benzie,595.49,Jackson
 Calhoun,776.95,Jackson
-Clare,709.14,Jackson
-Emmet,1152.14,Jackson
-Iosco,892.77,Jackson
+Eaton,787.96,Jackson
+Grand Traverse,836.55,Jackson
+Lapeer,977.09,Jackson
 Midland,802.06,Jackson
 Montcalm,760.74,Jackson
+St. Clair,1678.03,Jackson
 Van Buren,1189.7,Jackson
 Kalamazoo,1189.2,Kalamazoo
 Berrien,1208.9,Kalamazoo
 Calhoun,776.95,Kalamazoo
-Eaton,787.96,Kalamazoo
 Genesee,1439.92,Kalamazoo
 Grand Traverse,836.55,Kalamazoo
 Ingham,1029.19,Kalamazoo
+Jackson,867.47,Kalamazoo
 Monroe,1095.1,Kalamazoo
 Saginaw,1017.52,Kalamazoo
 St. Clair,1678.03,Kalamazoo
 Washtenaw,1373.27,Kalamazoo
 Kalkaska,547.43,Kalkaska
 Antrim,1139.45,Kalkaska
-Branch,832.06,Kalkaska
-Cass,966.94,Kalkaska
+Crawford,833.81,Kalkaska
 Hillsdale,922.74,Kalkaska
-Isabella,728.87,Kalkaska
 Leelanau,801.3,Kalkaska
 Manistee,621.82,Kalkaska
 Newaygo,692.39,Kalkaska
+Ogemaw,916.2,Kalkaska
 Osceola,539.31,Kalkaska
+Oscoda,552.25,Kalkaska
 Otsego,766.63,Kalkaska
 Keweenaw,1067.27,Keweenaw
 Alcona,768.44,Keweenaw
@@ -437,62 +437,62 @@ Gogebic,554.11,Keweenaw
 Houghton,1195.81,Keweenaw
 Iron,480.42,Keweenaw
 Marquette,1321.73,Keweenaw
-Missaukee,653.48,Keweenaw
 Montmorency,623.69,Keweenaw
+Ontonagon,790.15,Keweenaw
 Lake,574.48,Lake
-Clinton,938.03,Lake
 Crawford,833.81,Lake
 Gratiot,781.18,Lake
 Hillsdale,922.74,Lake
-Ionia,820.09,Lake
+Huron,830.78,Lake
+Leelanau,801.3,Lake
+Manistee,621.82,Lake
+Newaygo,692.39,Lake
 Oceana,642.63,Lake
-Otsego,766.63,Lake
-Shiawassee,848.71,Lake
 Tuscola,894.46,Lake
 Wexford,744.18,Lake
 Lapeer,977.09,Lapeer
 Allegan,751.4,Lapeer
+Barry,645.22,Lapeer
 Branch,832.06,Lapeer
 Cass,966.94,Lapeer
-Eaton,787.96,Lapeer
+Clinton,938.03,Lapeer
 Ionia,820.09,Lapeer
 Isabella,728.87,Lapeer
-Mecosta,525.52,Lapeer
-Oceana,642.63,Lapeer
 Shiawassee,848.71,Lapeer
 St. Joseph,927.18,Lapeer
+Van Buren,1189.7,Lapeer
 Leelanau,801.3,Leelanau
 Antrim,1139.45,Leelanau
-Barry,645.22,Leelanau
+Benzie,595.49,Leelanau
 Branch,832.06,Leelanau
 Cass,966.94,Leelanau
-Isabella,728.87,Leelanau
+Hillsdale,922.74,Leelanau
 Manistee,621.82,Leelanau
 Mecosta,525.52,Leelanau
 Newaygo,692.39,Leelanau
+Oceana,642.63,Leelanau
 Osceola,539.31,Leelanau
-St. Joseph,927.18,Leelanau
 Lenawee,880.36,Lenawee
 Clinton,938.03,Lenawee
-Crawford,833.81,Lenawee
 Gratiot,781.18,Lenawee
 Hillsdale,922.74,Lenawee
-Huron,830.78,Lenawee
 Ionia,820.09,Lenawee
-Sanilac,831.49,Lenawee
+Isabella,728.87,Lenawee
+Lapeer,977.09,Lenawee
 Shiawassee,848.71,Lenawee
+St. Joseph,927.18,Lenawee
 Tuscola,894.46,Lenawee
 Wexford,744.18,Lenawee
 Luce,820.26,Luce
 Alpena,815.5,Luce
-Cheboygan,703.96,Luce
 Chippewa,762.47,Luce
 Delta,517.57,Luce
 Dickinson,554.11,Luce
+Gogebic,554.11,Luce
+Iron,480.42,Luce
 Mackinac,852.37,Luce
 Marquette,1321.73,Luce
 Presque Isle,679.8,Luce
-Roscommon,802.46,Luce
 Schoolcraft,790.13,Luce
 Mackinac,852.37,Mackinac
 Alpena,815.5,Mackinac
@@ -505,41 +505,31 @@ Marquette,1321.73,Mackinac
 Presque Isle,679.8,Mackinac
 Roscommon,802.46,Mackinac
 Schoolcraft,790.13,Mackinac
-Macomb,2992.47,Macomb
-Berrien,1208.9,Macomb
-Genesee,1439.92,Macomb
-Grand Traverse,836.55,Macomb
-Ingham,1029.19,Macomb
-Kalamazoo,1189.2,Macomb
-Monroe,1095.1,Macomb
-Saginaw,1017.52,Macomb
-St. Clair,1678.03,Macomb
-Washtenaw,1373.27,Macomb
-Wayne,4110.19,Macomb
 Manistee,621.82,Manistee
-Barry,645.22,Manistee
+Antrim,1139.45,Manistee
+Benzie,595.49,Manistee
 Branch,832.06,Manistee
 Cass,966.94,Manistee
-Isabella,728.87,Manistee
+Lake,574.48,Manistee
 Leelanau,801.3,Manistee
 Mecosta,525.52,Manistee
 Newaygo,692.39,Manistee
 Oceana,642.63,Manistee
 Osceola,539.31,Manistee
-St. Joseph,927.18,Manistee
 Marquette,1321.73,Marquette
+Alcona,768.44,Marquette
 Alger,910.19,Marquette
-Arenac,934.41,Marquette
 Baraga,1092.72,Marquette
-Charlevoix,1410.45,Marquette
 Dickinson,554.11,Marquette
-Gladwin,759.68,Marquette
 Gogebic,554.11,Marquette
+Houghton,1195.81,Marquette
 Iron,480.42,Marquette
 Keweenaw,1067.27,Marquette
 Missaukee,653.48,Marquette
+Montmorency,623.69,Marquette
 Mecosta,525.52,Mecosta
 Barry,645.22,Mecosta
+Benzie,595.49,Mecosta
 Branch,832.06,Mecosta
 Cass,966.94,Mecosta
 Isabella,728.87,Mecosta
@@ -547,37 +537,36 @@ Leelanau,801.3,Mecosta
 Manistee,621.82,Mecosta
 Montcalm,760.74,Mecosta
 Newaygo,692.39,Mecosta
-St. Joseph,927.18,Mecosta
-Van Buren,1189.7,Mecosta
+Oceana,642.63,Mecosta
 Midland,802.06,Midland
-Arenac,934.41,Midland
-Benzie,595.49,Midland
+Barry,645.22,Midland
+Branch,832.06,Midland
 Calhoun,776.95,Midland
+Cass,966.94,Midland
 Charlevoix,1410.45,Midland
 Clare,709.14,Midland
 Emmet,1152.14,Midland
-Gladwin,759.68,Midland
-Iosco,892.77,Midland
 Jackson,867.47,Midland
-Missaukee,653.48,Midland
+Montcalm,760.74,Midland
+Van Buren,1189.7,Midland
 Missaukee,653.48,Missaukee
 Alcona,768.44,Missaukee
-Alger,910.19,Missaukee
 Antrim,1139.45,Missaukee
 Arenac,934.41,Missaukee
 Charlevoix,1410.45,Missaukee
 Clare,709.14,Missaukee
-Emmet,1152.14,Missaukee
+Gladwin,759.68,Missaukee
+Houghton,1195.81,Missaukee
 Iosco,892.77,Missaukee
 Montmorency,623.69,Missaukee
 Ogemaw,916.2,Missaukee
 Monroe,1095.1,Monroe
+Allegan,751.4,Monroe
 Berrien,1208.9,Monroe
+Calhoun,776.95,Monroe
 Clinton,938.03,Monroe
 Eaton,787.96,Monroe
 Grand Traverse,836.55,Monroe
-Gratiot,781.18,Monroe
-Ionia,820.09,Monroe
 Lenawee,880.36,Monroe
 Saginaw,1017.52,Monroe
 Shiawassee,848.71,Monroe
@@ -586,130 +575,130 @@ Montcalm,760.74,Montcalm
 Barry,645.22,Montcalm
 Benzie,595.49,Montcalm
 Branch,832.06,Montcalm
-Calhoun,776.95,Montcalm
 Cass,966.94,Montcalm
-Leelanau,801.3,Montcalm
+Emmet,1152.14,Montcalm
+Isabella,728.87,Montcalm
 Manistee,621.82,Montcalm
 Mecosta,525.52,Montcalm
-Osceola,539.31,Montcalm
+St. Joseph,927.18,Montcalm
 Van Buren,1189.7,Montcalm
 Montmorency,623.69,Montmorency
 Alcona,768.44,Montmorency
+Alger,910.19,Montmorency
 Antrim,1139.45,Montmorency
-Baraga,1092.72,Montmorency
 Clare,709.14,Montmorency
-Emmet,1152.14,Montmorency
 Houghton,1195.81,Montmorency
 Iosco,892.77,Montmorency
+Kalkaska,547.43,Montmorency
 Missaukee,653.48,Montmorency
 Ogemaw,916.2,Montmorency
 Osceola,539.31,Montmorency
 Newaygo,692.39,Newaygo
 Antrim,1139.45,Newaygo
+Benzie,595.49,Newaygo
 Branch,832.06,Newaygo
 Cass,966.94,Newaygo
-Isabella,728.87,Newaygo
-Kalkaska,547.43,Newaygo
+Hillsdale,922.74,Newaygo
 Leelanau,801.3,Newaygo
 Manistee,621.82,Newaygo
 Mecosta,525.52,Newaygo
+Ogemaw,916.2,Newaygo
 Osceola,539.31,Newaygo
-St. Joseph,927.18,Newaygo
 Oceana,642.63,Oceana
-Ionia,820.09,Oceana
-Isabella,728.87,Oceana
+Branch,832.06,Oceana
+Cass,966.94,Oceana
+Gratiot,781.18,Oceana
+Hillsdale,922.74,Oceana
 Lake,574.48,Oceana
-Lapeer,977.09,Oceana
 Leelanau,801.3,Oceana
 Manistee,621.82,Oceana
 Mecosta,525.52,Oceana
 Newaygo,692.39,Oceana
-St. Joseph,927.18,Oceana
 Wexford,744.18,Oceana
 Ogemaw,916.2,Ogemaw
 Antrim,1139.45,Ogemaw
 Benzie,595.49,Ogemaw
-Branch,832.06,Ogemaw
 Clare,709.14,Ogemaw
 Emmet,1152.14,Ogemaw
+Iosco,892.77,Ogemaw
+Kalkaska,547.43,Ogemaw
 Leelanau,801.3,Ogemaw
 Manistee,621.82,Ogemaw
-Montcalm,760.74,Ogemaw
 Newaygo,692.39,Ogemaw
 Osceola,539.31,Ogemaw
 Ontonagon,790.15,Ontonagon
-Crawford,833.81,Ontonagon
-Hillsdale,922.74,Ontonagon
+Alcona,768.44,Ontonagon
+Alger,910.19,Ontonagon
+Baraga,1092.72,Ontonagon
 Houghton,1195.81,Ontonagon
-Huron,830.78,Ontonagon
+Iron,480.42,Ontonagon
 Kalkaska,547.43,Ontonagon
+Keweenaw,1067.27,Ontonagon
+Missaukee,653.48,Ontonagon
 Montmorency,623.69,Ontonagon
 Oscoda,552.25,Ontonagon
-Otsego,766.63,Ontonagon
-Sanilac,831.49,Ontonagon
-Tuscola,894.46,Ontonagon
 Osceola,539.31,Osceola
 Antrim,1139.45,Osceola
-Barry,645.22,Osceola
 Benzie,595.49,Osceola
 Branch,832.06,Osceola
-Cass,966.94,Osceola
+Clare,709.14,Osceola
+Kalkaska,547.43,Osceola
 Leelanau,801.3,Osceola
 Manistee,621.82,Osceola
-Mecosta,525.52,Osceola
 Newaygo,692.39,Osceola
 Ogemaw,916.2,Osceola
+Otsego,766.63,Osceola
 Oscoda,552.25,Oscoda
 Crawford,833.81,Oscoda
-Gratiot,781.18,Oscoda
 Hillsdale,922.74,Oscoda
 Huron,830.78,Oscoda
 Kalkaska,547.43,Oscoda
 Lake,574.48,Oscoda
+Newaygo,692.39,Oscoda
+Osceola,539.31,Oscoda
 Otsego,766.63,Oscoda
 Sanilac,831.49,Oscoda
 Tuscola,894.46,Oscoda
-Wexford,744.18,Oscoda
 Otsego,766.63,Otsego
+Antrim,1139.45,Otsego
 Crawford,833.81,Otsego
-Gratiot,781.18,Otsego
 Hillsdale,922.74,Otsego
-Ionia,820.09,Otsego
+Huron,830.78,Otsego
 Kalkaska,547.43,Otsego
-Lake,574.48,Otsego
 Leelanau,801.3,Otsego
 Newaygo,692.39,Otsego
+Osceola,539.31,Otsego
+Sanilac,831.49,Otsego
 Tuscola,894.46,Otsego
-Wexford,744.18,Otsego
 Presque Isle,679.8,Presque Isle
 Alpena,815.5,Presque Isle
+Charlevoix,1410.45,Presque Isle
 Cheboygan,703.96,Presque Isle
 Chippewa,762.47,Presque Isle
 Delta,517.57,Presque Isle
 Dickinson,554.11,Presque Isle
 Gladwin,759.68,Presque Isle
-Luce,820.26,Presque Isle
 Mackinac,852.37,Presque Isle
 Marquette,1321.73,Presque Isle
 Roscommon,802.46,Presque Isle
 Roscommon,802.46,Roscommon
 Alpena,815.5,Roscommon
+Arenac,934.41,Roscommon
 Charlevoix,1410.45,Roscommon
 Cheboygan,703.96,Roscommon
-Chippewa,762.47,Roscommon
 Delta,517.57,Roscommon
 Dickinson,554.11,Roscommon
 Gladwin,759.68,Roscommon
+Iosco,892.77,Roscommon
 Mackinac,852.37,Roscommon
-Marquette,1321.73,Roscommon
 Presque Isle,679.8,Roscommon
 Saginaw,1017.52,Saginaw
 Allegan,751.4,Saginaw
 Berrien,1208.9,Saginaw
+Calhoun,776.95,Saginaw
 Clinton,938.03,Saginaw
 Eaton,787.96,Saginaw
 Grand Traverse,836.55,Saginaw
-Ionia,820.09,Saginaw
 Lenawee,880.36,Saginaw
 Monroe,1095.1,Saginaw
 Shiawassee,848.71,Saginaw
@@ -719,8 +708,8 @@ Crawford,833.81,Sanilac
 Gratiot,781.18,Sanilac
 Hillsdale,922.74,Sanilac
 Huron,830.78,Sanilac
-Ionia,820.09,Sanilac
-Lenawee,880.36,Sanilac
+Kalkaska,547.43,Sanilac
+Lake,574.48,Sanilac
 Oscoda,552.25,Sanilac
 Otsego,766.63,Sanilac
 Tuscola,894.46,Sanilac
@@ -737,38 +726,38 @@ Marquette,1321.73,Schoolcraft
 Presque Isle,679.8,Schoolcraft
 Roscommon,802.46,Schoolcraft
 Shiawassee,848.71,Shiawassee
+Allegan,751.4,Shiawassee
+Cass,966.94,Shiawassee
 Clinton,938.03,Shiawassee
-Eaton,787.96,Shiawassee
 Gratiot,781.18,Shiawassee
 Hillsdale,922.74,Shiawassee
 Ionia,820.09,Shiawassee
-Lake,574.48,Shiawassee
+Isabella,728.87,Shiawassee
 Lapeer,977.09,Shiawassee
 Lenawee,880.36,Shiawassee
-Oceana,642.63,Shiawassee
-Wexford,744.18,Shiawassee
+St. Joseph,927.18,Shiawassee
 St. Clair,1678.03,St. Clair
 Allegan,751.4,St. Clair
+Calhoun,776.95,St. Clair
 Clinton,938.03,St. Clair
 Eaton,787.96,St. Clair
 Grand Traverse,836.55,St. Clair
-Ionia,820.09,St. Clair
-Isabella,728.87,St. Clair
 Lapeer,977.09,St. Clair
+Monroe,1095.1,St. Clair
 Saginaw,1017.52,St. Clair
 Shiawassee,848.71,St. Clair
-St. Joseph,927.18,St. Clair
+Van Buren,1189.7,St. Clair
 St. Joseph,927.18,St. Joseph
 Allegan,751.4,St. Joseph
+Barry,645.22,St. Joseph
 Branch,832.06,St. Joseph
 Cass,966.94,St. Joseph
+Ionia,820.09,St. Joseph
 Isabella,728.87,St. Joseph
 Lapeer,977.09,St. Joseph
-Leelanau,801.3,St. Joseph
-Manistee,621.82,St. Joseph
 Mecosta,525.52,St. Joseph
-Newaygo,692.39,St. Joseph
-Oceana,642.63,St. Joseph
+Montcalm,760.74,St. Joseph
+Shiawassee,848.71,St. Joseph
 Tuscola,894.46,Tuscola
 Crawford,833.81,Tuscola
 Gratiot,781.18,Tuscola
@@ -776,9 +765,9 @@ Hillsdale,922.74,Tuscola
 Huron,830.78,Tuscola
 Ionia,820.09,Tuscola
 Lake,574.48,Tuscola
-Lenawee,880.36,Tuscola
+Newaygo,692.39,Tuscola
+Otsego,766.63,Tuscola
 Sanilac,831.49,Tuscola
-Shiawassee,848.71,Tuscola
 Wexford,744.18,Tuscola
 Van Buren,1189.7,Van Buren
 Allegan,751.4,Van Buren
@@ -792,35 +781,24 @@ Mecosta,525.52,Van Buren
 Montcalm,760.74,Van Buren
 St. Joseph,927.18,Van Buren
 Washtenaw,1373.27,Washtenaw
-Allegan,751.4,Washtenaw
 Berrien,1208.9,Washtenaw
 Eaton,787.96,Washtenaw
 Genesee,1439.92,Washtenaw
 Grand Traverse,836.55,Washtenaw
 Ingham,1029.19,Washtenaw
+Jackson,867.47,Washtenaw
 Kalamazoo,1189.2,Washtenaw
 Monroe,1095.1,Washtenaw
 Saginaw,1017.52,Washtenaw
 St. Clair,1678.03,Washtenaw
-Wayne,4110.19,Wayne
-Berrien,1208.9,Wayne
-Genesee,1439.92,Wayne
-Grand Traverse,836.55,Wayne
-Ingham,1029.19,Wayne
-Kalamazoo,1189.2,Wayne
-Macomb,2992.47,Wayne
-Monroe,1095.1,Wayne
-Saginaw,1017.52,Wayne
-St. Clair,1678.03,Wayne
-Washtenaw,1373.27,Wayne
 Wexford,744.18,Wexford
-Clinton,938.03,Wexford
-Crawford,833.81,Wexford
 Gratiot,781.18,Wexford
 Hillsdale,922.74,Wexford
 Ionia,820.09,Wexford
 Lake,574.48,Wexford
-Lenawee,880.36,Wexford
+Leelanau,801.3,Wexford
+Manistee,621.82,Wexford
+Mecosta,525.52,Wexford
 Oceana,642.63,Wexford
 Shiawassee,848.71,Wexford
 Tuscola,894.46,Wexford

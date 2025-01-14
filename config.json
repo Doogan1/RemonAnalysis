@@ -9,7 +9,7 @@
         "method": "z-score"
     },
     "filters": {
-        "exclude_counties": ["Bay", "Kent", "Livingston","Mason","Menominee","Muskegon","Oakland","Ottawa"]
+        "exclude_counties": ["Bay", "Kent", "Livingston","Mason","Macomb","Menominee","Muskegon","Oakland","Ottawa", "Wayne"]
     },
     "analysis_type": "all_neighbors",
     "clustering": {
