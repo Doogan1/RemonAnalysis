@@ -33,10 +33,10 @@ def filter_data(data, config):
     # Filter based on excluded counties, if specified
     exclude_counties = config.get("filters", {}).get("exclude_counties", [])
     if exclude_counties:
-        if "NAME" in data.columns:
-            data = data[~data["NAME"].isin(exclude_counties)]
+        if "County" in data.columns:
+            data = data[~data["County"].isin(exclude_counties)]
             print(f"Excluding counties: {exclude_counties}. Rows remaining after filter: {len(data)}")
         else:
-            print("Warning: 'NAME' column not found in data.")
+            print("Warning: 'County' column not found in data.")
     return data
 

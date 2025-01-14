@@ -1,5 +1,10 @@
 {
-    "file_path": "data/raw/pop_wetland_road_by_county.csv",
+    "file_paths": {
+        "state_survey": "data/raw/2023BiennialStateSurveyData.csv",
+        "population": "data/raw/population_density.csv",
+        "road": "data/raw/road_density.csv",
+        "wetlands": "data/raw/wetlands.csv"
+    },
     "standardization": {
         "method": "z-score"
     },
@@ -19,7 +24,7 @@
         "target_county": "Van Buren",
         "n_neighbors": 10,
         "metrics": ["wetlandd", "pop_d", "roadoverarea"],
-        "verbose": false
+        "verbose": true
     },
     "visualization": {
         "diag_kind": "kde",

@@ -1,4 +1,4 @@
-County,County Without Asterisks and Trimmed,Maintenance?,In Review?,Total Remon Corners in County,Remon Corners Completed thru 2022 Grant Cycle,Percent Remon Corners Completed thru 2022 Grant Cycle,Average Spent per Corner Completed,Total State Grants Awarded thru 2022 Grant Cycle,Total State Grants Expended thru 2022 Grant cycle
+County With Asterisks,County Without Asterisks and Trimmed,Maintenance?,In Review?,Total Remon Corners in County,Remon Corners Completed thru 2022 Grant Cycle,Percent Remon Corners Completed thru 2022 Grant Cycle,Average Spent per Corner Completed,Total State Grants Awarded thru 2022 Grant Cycle,Total State Grants Expended thru 2022 Grant cycle
 Alcona,Alcona,No,No,2120,1612,0.76,768.44,1244055.97,1238722.34
 Alger,Alger,No,No,4256,1757,0.4128,910.19,1603254.97,1599209.33
 Allegan,Allegan,No,No,4054,3166,0.781,751.4,2486223.41,2378924.6
@@ -26,7 +26,7 @@ Emmet,Emmet,No,No,2398,991,0.4133,1152.14,1153714.46,1141766.33
 Genesee,Genesee,No,No,3089,2591,0.8388,1439.92,3811310.25,3730826.67
 Gladwin,Gladwin,No,No,2455,1487,0.6057,759.68,1129648.8,1129648.8
 Gogebic,Gogebic,No,No,4121,3456,0.8386,554.11,1927832.61,1914988.91
-Gr. Traverse,Gr. Traverse,No,No,2384,1954,0.8196,836.55,1639868.09,1634618.2
+Grand Traverse,Grand Traverse,No,No,2384,1954,0.8196,836.55,1639868.09,1634618.2
 Gratiot,Gratiot,No,No,2704,1669,0.6172,781.18,1304934.95,1303797.58
 Hillsdale,Hillsdale,No,No,2884,1447,0.5017,922.74,1336623.48,1335209.25
 Houghton,Houghton,No,No,4009,1558,0.3886,1195.81,1869210.94,1863066.21

@@ -73,7 +73,12 @@ def find_target_neighbors(data, data_std,
     # Prepare data for NearestNeighbors (exclude county column)
     knn_data = data_for_knn.set_index(county_column)[metrics]
     log(f"Step 4: Prepared knn_data with shape {knn_data.shape} for metrics: {metrics}")
-
+    # Check for NaN values in the knn_data and log them
+    if knn_data.isnull().values.any():
+        log("Warning: NaN values detected in knn_data. Rows with NaN values:")
+        log(f"{knn_data[knn_data.isnull().any(axis=1)]}")
+    else:
+        log("Step 5: No NaN values detected in knn_data.")
     # Initialize Nearest Neighbors model on the selected metrics
     nbrs = NearestNeighbors(n_neighbors=n_neighbors + 1, algorithm='auto').fit(knn_data)
     log("Step 5: NearestNeighbors model initialized and fitted.")

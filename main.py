@@ -1,6 +1,7 @@
 import json
 import pandas as pd
 from modules.load_data import load_csv
+from modules.merge_data import merge_county_data
 from modules.preprocess import (
     standardize,
     filter_data
@@ -142,8 +143,17 @@ def find_neighbors_for_all(data, data_std, config, output_file="data/raw/county_
 
 
 def run_pipeline(config):
-    # Load data
-    data = load_csv(config["file_path"])
+    # Merge data from raw files
+    merged_data_path = "data/processed/merged_county_data.csv"
+    merge_county_data(
+        config["file_paths"]["state_survey"],
+        config["file_paths"]["population"],
+        config["file_paths"]["road"],
+        config["file_paths"]["wetlands"]
+    ).to_csv(merged_data_path, index=False)
+
+    # Load merged data
+    data = load_csv(merged_data_path)
     if data is None:
         print("Exiting pipeline due to data loading error.")
         return
@@ -153,16 +163,16 @@ def run_pipeline(config):
     
     # Verify that the target county is still in the data after filtering
     target_county = config["knn"]["target_county"]
-    if target_county not in data["NAME"].values:
+    if target_county not in data["County"].values:
         print(f"Error: Target county '{target_county}' was filtered out. Check filter criteria.")
         return  # Exit early if target county is missing
 
     # Extract columns for reference
-    county_names = data["NAME"]
-    cost_per_corner = data["Aveverage Spent per Corner Completed"]
+    county_names = data["County"]
+    cost_per_corner = data["Average Spent per Corner Completed"]
 
     # Preprocess: Standardize only the clustering features
-    features_to_standardize = data.drop(columns=["NAME", "Aveverage Spent per Corner Completed"])
+    features_to_standardize = data[["pop_d", "roadoverarea", "wetlandd"]]
     data_std = standardize(features_to_standardize, method=config["standardization"]["method"])
     if data_std is None:
         print("Exiting pipeline due to preprocessing error.")
